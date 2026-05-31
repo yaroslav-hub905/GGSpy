@@ -1,22 +1,44 @@
 {
-  "name": "GGSpy — Social Deduction",
-  "short_name": "GGSpy",
-  "description": "Социальная дедукция в мире Dota 2. Найди шпиона!",
-  "start_url": "/",
-  "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#050508",
-  "theme_color": "#050508",
-  "lang": "ru",
-  "icons": [
-    {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
-    }
-  ],
-  "categories": [
-    "games",
-    "entertainment"
-  ]
-}
+    "name": "GGSpy — Социальная дедукция",
+    "short_name": "GGSpy",
+    "description": "Социальная дедукция в мире Dota 2. Найди шпиона среди героев!",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#050508",
+    "theme_color": "#050508",
+    "lang": "ru",
+    "scope": "/",
+    "icons": [
+          {
+                  "src": "/icon-192.png",
+                  "sizes": "192x192",
+                  "type": "image/png",
+                  "purpose": "any maskable"
+          },
+          {
+                  "src": "/icon-512.png",
+                  "sizes": "512x512",
+                  "type": "image/png",
+                  "purpose": "any maskable"
+          },
+          {
+                  "src": "/favicon.svg",
+                  "sizes": "any",
+                  "type": "image/svg+xml"
+          }
+    ],
+    "screenshots": [
+          {
+                  "src": "/og-image.png",
+                  "sizes": "1200x630",
+                  "type": "image/png",
+                  "form_factor": "wide",
+                  "label": "GGSpy — главный экран"
+          }
+    ],
+    "categories": [
+          "games",
+          "entertainment"
+    ]
+} 
