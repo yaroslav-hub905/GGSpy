@@ -298,7 +298,7 @@ function Btn({children,onClick,v="primary",style={},disabled=false}) {
   const vs={
     primary:  {bg:"linear-gradient(135deg,#7f1d1d,#991b1b,#b91c1c)",br:"#ef4444",sh:"#ef4444"},
     secondary:{bg:"linear-gradient(135deg,#1a1a2e,#16213e)",br:"#6366f1",sh:"#6366f1"},
-    ghost:    {bg:"rgba(255,255,255,.04)",br:"#374151",sh:"#6b7280"},
+    ghost:    {bg:"rgba(255,255,255,.08)",br:"#4b5563",sh:"#9ca3af"},
     danger:   {bg:"linear-gradient(135deg,#450a0a,#7f1d1d)",br:"#dc2626",sh:"#dc2626"},
     gold:     {bg:"linear-gradient(135deg,#78350f,#92400e)",br:"#f59e0b",sh:"#f59e0b"},
     green:    {bg:"linear-gradient(135deg,#14532d,#166534)",br:"#22c55e",sh:"#22c55e"},
@@ -329,7 +329,7 @@ function Input({value,onChange,placeholder,max=24,style={},onKey}) {
     <input value={value} onChange={e=>onChange(e.target.value)}
       placeholder={placeholder} maxLength={max} onKeyDown={onKey}
       style={{
-        background:"rgba(10,10,22,.95)", border:"1px solid #252540",
+        background:"rgba(18,18,36,.95)", border:"1px solid #353575",
         borderBottom:"2px solid #ef444455", color:"#f9fafb",
         padding:"14px 16px", borderRadius:"8px", fontSize:"16px",
         fontFamily:"'Philosopher',sans-serif", width:"100%", outline:"none",
@@ -447,7 +447,7 @@ function HomeScreen({onStart}) {
             {i:"🗳",t:"Голосование",s:"Кто шпион?"},
           ].map(r=>(
             <div key={r.i} style={{
-              background:"rgba(10,10,22,.85)",
+              background:"rgba(22,22,42,.92)",
               border:"1px solid #1a1a2e",
               borderRadius:12,padding:"clamp(10px,2.5vw,16px) 8px",
               textAlign:"center",
@@ -558,15 +558,15 @@ function SetupScreen({onBack,onReady}) {
               {all.map((name,i)=>(
                 <div key={name} style={{
                   display:"flex",alignItems:"center",gap:12,
-                  background:"rgba(10,10,22,.85)",
-                  border:"1px solid #1a1a30",
+                  background:"rgba(22,22,42,.92)",
+                  border:"1px solid #303060",
                   borderLeft:`3px solid ${i===0?"#f59e0b":"#252550"}`,
                   borderRadius:8,padding:"10px 14px",
                   animation:"fadeIn .2s ease",
                 }}>
                   <div style={{width:36,height:36,borderRadius:"50%",flexShrink:0,
-                    background:`hsl(${(i*43)%360},50%,14%)`,
-                    border:`1.5px solid hsl(${(i*43)%360},65%,38%)`,
+                    background:`hsl(${(i*43)%360},55%,22%)`,
+                    border:`1.5px solid hsl(${(i*43)%360},70%,48%)`,
                     display:"flex",alignItems:"center",justifyContent:"center",fontSize:15}}>
                     {ICONS[i%10]}
                   </div>
@@ -634,7 +634,7 @@ function UniIcon({size=24}) {
 function CounterControl({label, value, onDec, onInc, display, sub}) {
   return (
     <div style={{background:"rgba(10,10,22,.9)",borderRadius:12,padding:"14px 16px",
-      border:"1px solid #1a1a30"}}>
+      border:"1px solid #303060"}}>
       <SectionLabel>{label}</SectionLabel>
       <div style={{display:"flex",alignItems:"center",gap:10}}>
         <button onClick={onDec} style={{
@@ -744,7 +744,7 @@ function GameSettingsScreen({heroes, players,onBack,onStart}) {
 
           {dropOpen&&(
             <div style={{position:"absolute",top:"calc(100% + 4px)",left:0,right:0,zIndex:80,
-              background:"#080812",border:"1px solid #1a1a30",borderRadius:10,
+              background:"#080812",border:"1px solid #303060",borderRadius:10,
               overflow:"hidden",boxShadow:"0 12px 40px rgba(0,0,0,.9)",animation:"fadeIn .15s ease"}}>
               {/* Все */}
               <div onClick={()=>{setFilter("ALL");setDropOpen(false);}} style={{
@@ -797,7 +797,7 @@ function GameSettingsScreen({heroes, players,onBack,onStart}) {
         {/* Сводка */}
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"6px 12px",
           background:"rgba(10,10,22,.7)",borderRadius:10,padding:"12px 16px",
-          border:"1px solid #1a1a30"}}>
+          border:"1px solid #303060"}}>
           {[
             {l:"Игроков",v:`${players.length} чел.`,c:"#9ca3af"},
             {l:"Время",  v:formatTime(dur),           c:"#fb923c"},
@@ -850,7 +850,7 @@ function HeroCard({hero}) {
           marginBottom:14,boxShadow:`0 0 14px ${c.glow}33`,fontWeight:700}}>
           {label}
         </div>
-        <div style={{color:"#6b7280",fontSize:12,fontFamily:"'Almendra',serif",
+        <div style={{color:"#9ca3af",fontSize:12,fontFamily:"'Almendra',serif",
           fontStyle:"italic",lineHeight:1.7,padding:"0 4px",marginBottom:14}}>
           "{hero.desc}"
         </div>
@@ -968,7 +968,7 @@ function RoleRevealScreen({game,onDone}) {
           </div>
         </div>
         <div style={{
-          background:"rgba(10,10,22,.85)",border:"1px solid #1a1a30",
+          background:"rgba(22,22,42,.92)",border:"1px solid #303060",
           borderRadius:10,padding:"12px 20px",width:"100%",
           display:"flex",gap:0,justifyContent:"space-around",
         }}>
@@ -1099,7 +1099,7 @@ function DiscussionScreen({game,onVoteTime}) {
 
         {/* Таймер */}
         <div style={{background:"rgba(10,10,22,.9)",borderRadius:14,padding:"16px 20px",
-          border:"1px solid #1a1a30",textAlign:"center"}}>
+          border:"1px solid #303060",textAlign:"center"}}>
           <div style={{
             fontSize:"clamp(50px,13vw,72px)",fontFamily:"'Anton',sans-serif",lineHeight:1,
             color:rem<=30?tc:"#f9fafb",
@@ -1117,7 +1117,7 @@ function DiscussionScreen({game,onVoteTime}) {
 
         {/* Подсказка */}
         <div onClick={next} style={{
-          background:"rgba(10,10,22,.95)",border:"1.5px solid #2e2b6e",borderRadius:14,
+          background:"rgba(20,20,45,.96)",border:"1.5px solid #4a46a0",borderRadius:14,
           padding:"16px 16px 14px",cursor:"pointer",userSelect:"none",
           boxShadow:"0 0 22px #312e8122",
           opacity:flash?0:1,transition:"opacity .13s",position:"relative",
@@ -1140,10 +1140,10 @@ function DiscussionScreen({game,onVoteTime}) {
           <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:10}}>
             <div style={{display:"flex",alignItems:"center",gap:7}}>
               <span style={{fontSize:16}}>{p.icon}</span>
-              <span style={{color:"#5b5bd6",fontSize:9,fontFamily:"'Philosopher',sans-serif",
+              <span style={{color:"#818cf8",fontSize:9,fontFamily:"'Philosopher',sans-serif",
                 letterSpacing:".28em",fontWeight:700}}>ПОДСКАЗКА {pidx+1}/{PROMPTS.length}</span>
             </div>
-            <span style={{color:"#3730a3",fontSize:14}}>↻</span>
+            <span style={{color:"#818cf8",fontSize:14}}>↻</span>
           </div>
 
           <div style={{color:"#e5e7eb",fontSize:"clamp(13px,3vw,15px)",fontFamily:"'Almendra',serif",
@@ -1172,7 +1172,7 @@ function DiscussionScreen({game,onVoteTime}) {
             gridTemplateColumns:`repeat(${Math.min(Math.ceil(game.players.length/2),4)},1fr)`,gap:6}}>
             {game.players.map((pl,i)=>(
               <div key={pl} style={{
-                background:"rgba(10,10,22,.8)",border:"1px solid #1a1a30",
+                background:"rgba(10,10,22,.8)",border:"1px solid #303060",
                 borderRadius:8,padding:"8px 6px",textAlign:"center",
               }}>
                 <div style={{fontSize:14,marginBottom:2}}>{ICONS[i%10]}</div>
@@ -1266,8 +1266,8 @@ function VotingScreen({game,onAllVoted}) {
             const isMe=pl===voter, isVoted=sel===pl;
             return (
               <div key={pl} onClick={()=>!isMe&&setSel(pl)} style={{
-                background:isVoted?"rgba(92,17,17,.4)":"rgba(10,10,22,.88)",
-                border:`${isVoted?2:1}px solid ${isVoted?"#e84118":"#1a1a30"}`,
+                background:isVoted?"rgba(92,17,17,.55)":"rgba(22,22,42,.92)",
+                border:`${isVoted?2:1}px solid ${isVoted?"#e84118":"#353570"}`,
                 borderRadius:10,padding:"12px 14px",cursor:isMe?"default":"pointer",
                 display:"flex",alignItems:"center",gap:14,
                 boxShadow:isVoted?"0 0 24px #e8411833":"none",
@@ -1275,8 +1275,8 @@ function VotingScreen({game,onAllVoted}) {
                 transition:"all .15s",
               }}>
                 <div style={{width:44,height:44,borderRadius:"50%",flexShrink:0,
-                  background:`hsl(${(i*43)%360},50%,14%)`,
-                  border:`2px solid hsl(${(i*43)%360},65%,38%)`,
+                  background:`hsl(${(i*43)%360},55%,22%)`,
+                  border:`2px solid hsl(${(i*43)%360},70%,48%)`,
                   display:"flex",alignItems:"center",justifyContent:"center",fontSize:18}}>
                   {ICONS[i%10]}
                 </div>
