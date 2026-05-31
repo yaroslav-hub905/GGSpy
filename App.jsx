@@ -345,8 +345,8 @@ function Screen({children, center=false}) {
       position:"relative", zIndex:1, minHeight:"100dvh",
       display:"flex", flexDirection:"column",
       alignItems:"center", justifyContent:center?"center":"flex-start",
-      padding:"clamp(20px,4vw,36px) clamp(16px,4vw,24px) 60px",
-      maxWidth:"600px", margin:"0 auto", width:"100%", boxSizing:"border-box",
+      padding:"clamp(24px,4vw,48px) clamp(20px,4vw,40px) 80px",
+      maxWidth:"900px", margin:"0 auto", width:"100%", boxSizing:"border-box",
     }}>
       {children}
     </div>
@@ -378,7 +378,7 @@ function Logo({small=false}) {
 
 function SectionLabel({children}) {
   return (
-    <div style={{color:"#3f3f5a",fontSize:10,fontFamily:"'Philosopher',sans-serif",
+    <div style={{color:"#7c7ca0",fontSize:12,fontFamily:"'Philosopher',sans-serif",
       letterSpacing:".22em",marginBottom:8,textTransform:"uppercase"}}>
       {children}
     </div>
@@ -633,14 +633,14 @@ function UniIcon({size=24}) {
 
 function CounterControl({label, value, onDec, onInc, display, sub}) {
   return (
-    <div style={{background:"rgba(10,10,22,.9)",borderRadius:12,padding:"14px 16px",
+    <div style={{background:"rgba(20,20,42,.96)",borderRadius:14,padding:"18px 20px",
       border:"1px solid #303060"}}>
       <SectionLabel>{label}</SectionLabel>
       <div style={{display:"flex",alignItems:"center",gap:10}}>
         <button onClick={onDec} style={{
-          width:44,height:44,borderRadius:8,flexShrink:0,
-          border:"1px solid #252545",background:"rgba(10,10,22,.9)",
-          color:"#9ca3af",fontSize:20,cursor:"pointer",
+          width:54,height:54,borderRadius:10,flexShrink:0,
+          border:"1.5px solid #3a3a70",background:"rgba(25,25,50,.95)",
+          color:"#d1d5db",fontSize:22,cursor:"pointer",
           display:"flex",alignItems:"center",justifyContent:"center",
           fontFamily:"'Anton',sans-serif",transition:"all .1s",
         }}>−</button>
@@ -652,9 +652,9 @@ function CounterControl({label, value, onDec, onInc, display, sub}) {
           {sub&&<div style={{color:"#374151",fontSize:10,fontFamily:"'Philosopher',sans-serif",marginTop:3}}>{sub}</div>}
         </div>
         <button onClick={onInc} style={{
-          width:44,height:44,borderRadius:8,flexShrink:0,
-          border:"1px solid #252545",background:"rgba(10,10,22,.9)",
-          color:"#9ca3af",fontSize:20,cursor:"pointer",
+          width:54,height:54,borderRadius:10,flexShrink:0,
+          border:"1.5px solid #3a3a70",background:"rgba(25,25,50,.95)",
+          color:"#d1d5db",fontSize:22,cursor:"pointer",
           display:"flex",alignItems:"center",justifyContent:"center",
           fontFamily:"'Anton',sans-serif",transition:"all .1s",
         }}>+</button>
@@ -697,10 +697,10 @@ function GameSettingsScreen({heroes, players,onBack,onStart}) {
         <div style={{display:"flex",gap:6}}>
           {[60,90,120,180,300].map(v=>(
             <div key={v} onClick={()=>setDur(v)} style={{
-              flex:1,height:32,borderRadius:6,textAlign:"center",cursor:"pointer",
-              border:`1px solid ${dur===v?"#f97316":"#1a1a30"}`,
+              flex:1,height:42,borderRadius:8,textAlign:"center",cursor:"pointer",
+              border:`1.5px solid ${dur===v?"#f97316":"#2d2d5a"}`,
               background:dur===v?"rgba(124,45,18,.3)":"rgba(10,10,22,.5)",
-              color:dur===v?"#fb923c":"#374151",fontSize:10,
+              color:dur===v?"#fb923c":"#9ca3af",fontSize:13,
               fontFamily:"'Philosopher',sans-serif",transition:"all .15s",
               display:"flex",alignItems:"center",justifyContent:"center",
             }}>{formatTime(v)}</div>
@@ -720,9 +720,9 @@ function GameSettingsScreen({heroes, players,onBack,onStart}) {
           <div onClick={()=>setDropOpen(o=>!o)} style={{
             display:"flex",alignItems:"center",gap:12,padding:"13px 16px",
             borderRadius:10,cursor:"pointer",userSelect:"none",
-            border:`1px solid ${dropOpen?"#374151":"#1a1a30"}`,
+            border:`1.5px solid ${dropOpen?"#5a5a90":"#2d2d5a"}`,
             background:"rgba(10,10,22,.95)",transition:"all .15s",
-            boxShadow:dropOpen?"0 0 0 1px #374151":"none",
+            boxShadow:dropOpen?"0 0 0 2px #5a5a90":"none",
           }}>
             <div style={{width:28,height:28,flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center"}}>
               {filter==="ALL"?<span style={{fontSize:18}}>🌐</span>
@@ -734,11 +734,11 @@ function GameSettingsScreen({heroes, players,onBack,onStart}) {
                 color:filter==="ALL"?"#f9fafb":(ATTR_CFG[filter]?.isUni?"#e0e0ff":ATTR_CFG[filter]?.color||"#f9fafb")}}>
                 {filter==="ALL"?"Все категории":ATTR_CFG[filter].label}
               </div>
-              <div style={{fontSize:10,color:"#374151",fontFamily:"'Philosopher',sans-serif",marginTop:1}}>
+              <div style={{fontSize:12,color:"#6b7280",fontFamily:"'Philosopher',sans-serif",marginTop:2}}>
                 {pool.length} героев доступно
               </div>
             </div>
-            <span style={{color:"#374151",fontSize:10,transition:"transform .2s",
+            <span style={{color:"#6b7280",fontSize:12,transition:"transform .2s",
               transform:dropOpen?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
           </div>
 
@@ -758,7 +758,7 @@ function GameSettingsScreen({heroes, players,onBack,onStart}) {
                 <div style={{flex:1}}>
                   <div style={{fontSize:13,fontFamily:"'Philosopher',sans-serif",fontWeight:700,
                     color:filter==="ALL"?"#f9fafb":"#6b7280"}}>Все категории</div>
-                  <div style={{fontSize:10,color:"#374151",fontFamily:"'Philosopher',sans-serif"}}>{heroes.length} героев</div>
+                  <div style={{fontSize:12,color:"#6b7280",fontFamily:"'Philosopher',sans-serif"}}>{heroes.length} героев</div>
                 </div>
                 {filter==="ALL"&&<span style={{color:"#f9fafb",fontSize:12}}>✓</span>}
               </div>
@@ -779,7 +779,7 @@ function GameSettingsScreen({heroes, players,onBack,onStart}) {
                     <div style={{flex:1}}>
                       <div style={{fontSize:13,fontFamily:"'Philosopher',sans-serif",fontWeight:700,
                         color:active?(ac.isUni?"#e0e0ff":ac.color):"#6b7280"}}>{ac.label}</div>
-                      <div style={{fontSize:10,color:"#374151",fontFamily:"'Philosopher',sans-serif"}}>{cnt} героев</div>
+                      <div style={{fontSize:12,color:"#6b7280",fontFamily:"'Philosopher',sans-serif"}}>{cnt} героев</div>
                     </div>
                     <div style={{width:3,height:24,borderRadius:2,flexShrink:0,
                       background:key==="UNI"?"linear-gradient(#e84118,#44db6e,#3d9be9)":ac.glow,
@@ -805,8 +805,8 @@ function GameSettingsScreen({heroes, players,onBack,onStart}) {
             {l:"Героев", v:`${pool.length} шт.`,       c:"#3d9be9"},
           ].map(({l,v,c})=>(
             <div key={l} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"2px 0"}}>
-              <span style={{color:"#374151",fontSize:11,fontFamily:"'Philosopher',sans-serif"}}>{l}</span>
-              <span style={{color:c,fontSize:13,fontFamily:"'Anton',sans-serif"}}>{v}</span>
+              <span style={{color:"#8b95a8",fontSize:14,fontFamily:"'Philosopher',sans-serif"}}>{l}</span>
+              <span style={{color:c,fontSize:16,fontFamily:"'Anton',sans-serif"}}>{v}</span>
             </div>
           ))}
         </div>
